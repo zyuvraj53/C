@@ -1,0 +1,9 @@
+gcc main.c -E
+
+gcc main.c -S
+
+gcc main.c -o main.o
+
+gcc main.c
+
+./a.exe
