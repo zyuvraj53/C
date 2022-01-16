@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "Geo2JSON.C": "cpp"
+    "Geo2JSON.C": "cpp",
+    "stdio.h": "c"
   }
 }
