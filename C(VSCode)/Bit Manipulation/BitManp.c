@@ -16,6 +16,8 @@ int main(int argc, char* argv[]){
   printf("%d\n", r); 
 
   binary(r);
+  printf("\n"); 
+  binary(8);
   //binary(8);
 
   return 0; 
