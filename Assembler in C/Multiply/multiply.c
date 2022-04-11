@@ -1,13 +1,11 @@
-#include <stdio.h>
-
-int main(int argc, char *argv[]) {
+int main() {
 
   int a = 5;
   int b = 2;
 
   int c = a * b;
 
-  printf("%d\n", c);
+  // printf("%d\n", c);
 
   return 0;
 }
