@@ -52,7 +52,7 @@ int main() {
     // read operation code
     printf("Enter operation code: ");
     scanf("%c", &code);
-    while (getchar() != '\n'); /* skips to end of line */
+    while (getchar() != '\n'); /* Discards the extra characters that the user may have input */
 
     // run operation
     switch (code) {
@@ -105,15 +105,14 @@ struct tshirt* add_to_inventory(struct tshirt* inventory) {
     return inventory;
   }
 
-  printf("Enter student organization name: ");
-  read_line(new_node->org_name, 51);
+  printf("enter student organization name: ");
+  read_line(new_node->org_name, 51); // *new_node.org_name
 
-  printf("Enter t-shirt size: ");
-  read_line(new_node->size, 4);
+  printf("enter t-shirt size: ");
+  read_line(new_node->size, 4); // *new_node.size
 
   struct tshirt *cur, *prev;
-  for (cur = inventory, prev = NULL; cur != NULL && new_node->org_name > cur->org_name && new_node->size > cur->size; cur = cur->next)
-    ;
+  for (cur = inventory, prev = NULL; cur != NULL && new_node->org_name > cur->org_name && new_node->size > cur->size; cur = cur->next); //This loop is to find the position where the new node should be inserted
   if (cur != NULL && cur->org_name == cur->org_name && new_node->size == cur->size) {
     printf("tshirt already exists.\n");
     free(new_node);
@@ -218,11 +217,11 @@ int read_line(char str[], int n) {
 
   while(isspace(ch = getchar()));
     
-  str[i++] = ch;
-  while((ch = getchar()) != '\n') {
+  str[i++] = ch; // value of i is 1
+  while((ch = getchar()) != '\n') 
     if(i < n)
-      str[i++] = ch;
-  }
-  str[i] = '\0';
+      str[i++] = ch; //stores ch in str[i = 1], and i is incremented, done until ch is not '\n' and i is less than n
+
+  str[i] = '\0'; // last character is made null
   return i;
 }

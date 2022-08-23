@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define ullint unsigned long long int
 
-void initializeArray(int *array[]) {
+void initializeArray(ullint array) {
   for (int i = 0; i < 3; i++) {
     array[i] = 0;
   }
@@ -22,7 +22,7 @@ int main() {
     }
   }
 
-  initializeArray(&arr1);
+  initializeArray(arr1); //arrays are decayed to pointers
 
   for (int i = 0; i < 3; i++) {
     printf("%d", arr1[i]);
