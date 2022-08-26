@@ -1,0 +1,12 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is 02D7-BE0F
+
+ Directory of D:\Desktop\C\DSA\mycodeschool\Video 33
+
+24-08-2022  23:17    <DIR>          .
+24-08-2022  23:17    <DIR>          ..
+24-08-2022  23:17               477 program.cpp
+24-08-2022  23:17            49,669 program.exe
+24-08-2022  23:17                 0 system.txt
+               3 File(s)         50,146 bytes
+               2 Dir(s)  219,862,544,384 bytes free

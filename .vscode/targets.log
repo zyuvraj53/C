@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Wed Aug 24 02:22:04 2022
+# Make data base, printed on Sat Aug 27 02:04:22 2022
 
 # Variables
 
@@ -82,7 +82,7 @@ ELECTRON_RUN_AS_NODE = 1
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15576_SHGRXBPDVUSNPXCG
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1884_GRFTAPJSSHFDUKHU
 # environment
 COMPUTERNAME = COMPUTATORIUMRE
 # environment
@@ -216,10 +216,10 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 15576
+VSCODE_PID = 1884
 # environment
-USERDOMAIN_ROAMI 
-NGPROFILE = COMPUTATORIUMRE
+USERDOMAIN_ROAMING 
+PROFILE = COMPUTATORIUMRE
 # variable set hash-table stats:
 # Load=104/1024=10%, Rehash=0, Collisions=14/121=12%
 
@@ -233,7 +233,7 @@ NGPROFILE = COMPUTATORIUMRE
 # C:\Program Files\Java\jdk-16.0.1\bin (key C:/Program Files/Java/jdk-16.0.1/bin, mtime 1625935255): 123 files, no impossibilities.
 # C:\Program Files (x86)\Notepad++ (key C:/Program Files (x86)/Notepad++, mtime 1640462914): 19 files, no impossibilities.
 # C:\Python\Python391\ (key C:/Python/Python391/, mtime 1650528429): 34 files, no impossibilities.
-# C:\Users\Yuvraj\AppData\Local\Microsoft\WindowsApps (key C:/Users/Yuvraj/AppData/Local/Microsoft/WindowsApps, mtime 1660800017): 38 files, no impossibilities.
+# C:\Users\Yuvraj\AppData\Local\Microsoft\WindowsApps (key C:/Users/Yuvraj/AppData/Local/Microsoft/WindowsApps, mtime 1661486107): 38 files, no impossibilities.
 # C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (key C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, mtime 1582737660): 5 files, no impossibilities.
 # C:\Python\Python391\Scripts\ (key C:/Python/Python391/Scripts/, mtime 1654149578): 58 files, no impossibilities.
 # C:\Users\Yuvraj\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/Yuvraj/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1661027043): 4 files, no impossibilities.
@@ -255,20 +255,19 @@ NGPROFILE = COMPUTATORIUMRE
 # C:\Windows\System32\Wbem (key C:/Windows/System32/Wbem, mtime 1657864371): 153 files, no impossibilities.
 # C:\tools\ghc-9.2.2\bin (key C:/tools/ghc-9.2.2/bin, mtime 1650470662): 54 files, no impossibilities.
 # C:\Program Files\Common Files\Oracle\Java\javapath (key C:/Program Files/Common Files/Oracle/Java/javapath, mtime 1639348932): 6 files, no impossibilities.
-# C:\Users\Yuvraj\AppData\Roaming\cabal\bin: could not be 
- stat'd.
+# C:\Users\Yuvraj\AppData\Roaming\cabal\bin: could not be stat'd.
 # C:\Program Files\nodejs\ (key C:/Program Files/nodejs/, mtime 1620456590): 11 files, no impossibilities.
 # C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1619018548): 30 files, no impossibilities.
-# C:\Windows\system32 (key C:/Windows/system32, mtime 1661267414): 2903 files, no impossibilities.
+# C:\Windows\system32 (key C:/Windows/system32, mtime 1661527067): 2903 files, no impossibilities.
 # C:\Program Files\MongoDB\Server\4.4\bin: could not be stat'd.
-# C:\Users\Yuvraj\AppData\Roaming\npm (key C:/Users/Yuvraj/AppData/Roaming/npm, mtime 1641572122): 30 files, no impossibilities.
+# C:\Users\Yuvraj\AppData\Roaming\npm (key C:/Users/Yuvraj/AppData/Roaming/npm, mtime 1661488747): 33 files, no impossibilities.
 # C:\Program Files\Graphviz\bin (key C:/Program Files/Graphviz/bin, mtime 1660953743): 65 files, no impossibilities.
 # C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
 # C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.3\bin: could not be stat'd.
-# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1661267414): 2903 files, no impossibilities.
+# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1661527067): 2903 files, no impossibilities.
 # C:\tools\neovim\Neovim\bin (key C:/tools/neovim/Neovim/bin, mtime 1650470662): 41 files, no impossibilities.
 
-# 7220 files, no impossibilities in 37 directories.
+# 7223 files, no impossibilities in 37 directories.
 
 # Implicit Rules
 
@@ -318,23 +317,22 @@ GNUmakefile:
 
 # files hash-table stats:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
-# VPA 
-make.exe: *** No rule to make target 'all'.  Stop.
-
-TH Search Paths
+# VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 8 (7) / strings = 3950 / storage = 59461 B / avg = 15 B
-# current buf: size = 8174 B / used = 2292 B / count = 150 / avg = 15 B
-# other used: total = 51287 B / count = 3800 / avg = 13 B
-# other free: total = 49 B / max = 14 B / min = 2 B / avg = 7 B
+# strcache buffers: 8 (7) / strings = 3953 / storage = 59484 B / avg = 15 B
+# current buf: size = 8174 B / used = 2319 B / count = 151 / avg = 15 B
+# other used: total = 51310 B / count = 3802 / avg = 13 B
+# other free: total = 53 B / max = 14 B / min = 2 B / avg = 7 B
 
-# strcache performance: lookups = 7265 / hit rate = 45%
+# strcache performance: lookups = 7268 / hit rate = 45%
 # hash-table stats:
-# Load=3950/8192=48%, Rehash=0, Collisions=2655/7265=37%
-# Finished Make data base on Wed Aug 24 02:22:04 2022
+# Load=3953/8192=48%, Rehash=0, Collisions=2658/7268=37%
+# Finished Make data base on Sat Aug 27 02:04:22 2022
 
  
+make.exe: *** No rule to make target 'all'.  Stop.
+
