@@ -184,7 +184,7 @@ bool IsOperand(char C)
 // Function to verify whether a character is operator symbol or not. 
 bool IsOperator(char C)
 {
-	if(C == '+' || C == '-' || C == '*' || C == '/' || C== '$')
+	if(C == '+' || C == '-' || C == '*' || C == '/' || C== '$' || C == '=')
 		return true;
 
 	return false;
