@@ -53,24 +53,29 @@ int findMaxRecursive(BstNode *);
 void makeGraph(BstNode *);
 void grapherPreorderTraversal(BstNode *, std::fstream &);
 void displayGraph();
+//extra functions: for studying
+void inorder_iterative(BstNode *);
 
 int main() {
   BEGIN
 
   BstNode *root = NULL; // even though we're writing root, this is not the root itself, but the pointer to the root.
 
-  root = insert(root, 249);
-  root = insert(root, 683);
-  root = insert(root, 159);
-  root = insert(root, 726);
-  root = insert(root, 5);
-  root = insert(root, 165);
-  root = insert(root, 685);
-  root = insert(root, 800);
+  root = insert(root, 40);
+  root = insert(root, 65);
+  root = insert(root, 30);
+  root = insert(root, 3);
+  root = insert(root, 12);
 
   // std::cout << (search(root, 130) == true ? "true" : "false") << std::endl;
-  makeGraph(root);
-  displayGraph();
+
+  //^ code for making graph
+  //makeGraph(root);
+  //displayGraph();
+  //^ code for making graph ends
+
+  inorder_iterative(root);
+
   END return 0;
 }
 
@@ -257,7 +262,7 @@ int findHeightRecursive(BstNode *root) {
 //?                       Video 33 - Level Order Traversal
 //~ For BFS, we use a queue.
 
-void levelOrderTraversal(BstNode *root) {
+void levelOrderTraversal(BstNode *root) { //mark
   if (root == NULL) {
     return;
   } else {
@@ -302,8 +307,8 @@ void inorder(BstNode *root) {
 void postorder(BstNode *root) {
   if (root == NULL)
     return;
-  preorder(root->left);
-  preorder(root->right);
+  postorder(root->left);
+  postorder(root->right);
   printf("%d\n", root->data);
 }
 
@@ -377,4 +382,31 @@ BstNode *deleteNode(BstNode *root, int data) {
     }
   }
   return root;
+}
+
+//$ extra functions: for studying
+
+void inorder_iterative(BstNode *root) {
+  std::stack<BstNode *> s;
+
+  BstNode *current = root;
+
+  int done = 0;
+
+  while (done == 0) {
+
+    if (current != NULL) {
+      s.push(current);
+      current = current->left;
+    } else {
+      if (!s.empty()) {
+        current = s.top();
+        s.pop();
+        printf("%d ", current->data);
+        current = current->right;
+      } else {
+        done = 1;
+      }
+    }
+  }
 }
