@@ -9,7 +9,8 @@
     "istream": "cpp",
     "streambuf": "cpp",
     "cstdio": "c",
-    "fstream": "c"
+    "fstream": "c",
+    "chrono": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "C:/MinGW/bin/g++.exe",

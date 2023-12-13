@@ -1,166 +1,13 @@
 #include <bits/stdc++.h>
-#include <chrono>
 #include <fstream>
 #include <iostream>
 #include <queue>
-#include <stack>
 #include <string>
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-//~ Even though this is C++, it is written like C, because the instructor does not know C++ that well.
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-#define BEGIN \
-  auto begin = std::chrono::high_resolution_clock::now();
-
-#define END                                             \
-  auto end = std::chrono::high_resolution_clock::now(); \
-  std::chrono::duration<float> duration = end - begin;  \
-  std::cout << "\n[Finished in " << duration.count() << " seconds]";
+#include "binaryTrees.hpp"
 
 #define RED "\e[0;31m"
 #define DEFAULT "\e[0m"
-
-//~                            Binary Search Tree - Implementation in C/C++
-
-typedef struct BstNode {
-  int data;
-  BstNode *left;
-  BstNode *right;
-} BstNode;
-
-// Normal Functions
-BstNode *insert(BstNode *, int);
-BstNode *getNewNode(int);
-bool search(BstNode *, int);
-int findMin(BstNode *);
-int findMax(BstNode *);
-int findHeightRecursive(BstNode *);
-int max(int, int);
-void levelOrderTraversal(BstNode *);
-void preorder(BstNode *);
-void inorder(BstNode *);
-void postorder(BstNode *);
-bool isBstUtil(BstNode *);
-bool isBinarySearchTree(BstNode *);
-BstNode *deleteNode(BstNode *, int);
-BstNode *findMinNode(BstNode *);
-// Redundant Recursive Functions
-int findMinRecursive(BstNode *);
-int findMaxRecursive(BstNode *);
-// Functions for Building Graph
-void makeGraph(BstNode *);
-void grapherPreorderTraversal(BstNode *, std::fstream &);
-void displayGraph();
-// extra functions: for studying
-void preorder_iterative(BstNode *);
-void inorder_iterative(BstNode *);
-void postorder_iterative(BstNode *);
-void zigzag_levelOrder(BstNode *);
-BstNode *invert(BstNode *);
-void checkInversion(BstNode *, BstNode *, int *);
-BstNode *createNode(int);
-
-BstNode *createNode(int val){
-  BstNode *node = (BstNode *)malloc(sizeof(BstNode));
-  node->data = val;
-  node->left = NULL;
-  node->right = NULL;
-
-  return node;
-}
-
-int main() {
-  BEGIN
-
-  BstNode *root = NULL; // even though we're writing root, this is not the root itself, but the pointer to the root.
-
-  //explicit Tree
-
-  BstNode *expRoot = createNode(128);
-  expRoot->right = createNode(32);
-  expRoot->right->left = createNode(64);
-  expRoot->right->right = createNode(16);
-  expRoot->left = createNode(32);
-  expRoot->left->left = createNode(16);
-  expRoot->left->right = createNode(64);
-
-  //root = insert(root, 128);
-  //root = insert(root, 32);
-  //root = insert(root, 512);
-  //root = insert(root, 16);
-  //root = insert(root, 64);
-  //root = insert(root, 256);
-  //root = insert(root, 1024);
-
-  // std::cout << (search(root, 130) == true ? "true" : "false") << std::endl;
-
-  //root = invert(root);
-
-  //^ code for making graph
-  //makeGraph(expRoot);
-  //displayGraph();
-  //^ code for making graph ends
-
-  int check = 0;
-  checkInversion(expRoot->right, expRoot->left, &check);
-
-  if(check == 0){
-    printf("The tree is inverted");
-  }else{
-    printf("The tree is not inverted.");
-  }
-
-  //inorder_iterative(root);
-  //std::cout << std::endl;
-
-  //BstNode *inverted = invert(root);
-  //inorder_iterative(inverted);
-
-  //std::cout << findMinRecursive(root);
-
-  END return 0;
-}
-
-void makeGraph(BstNode *root) {
-  std::fstream grapher;
-  grapher.open("graph.gv", std::ios::out);
-
-  if (grapher.is_open()) {
-    grapher << "graph {\n";
-    grapherPreorderTraversal(root, grapher);
-    grapher << "}";
-    grapher.close();
-  }
-}
-
-void grapherPreorderTraversal(BstNode *root, std::fstream &file) {
-  if (root == NULL)
-    return;
-  if (root->left == NULL && root->right != NULL) {
-    file << root->data << "--";
-    file << (root->right)->data << "\n";
-    grapherPreorderTraversal(root->right, file);
-  } else if (root->right == NULL && root->left != NULL) {
-    file << root->data << "--";
-    file << (root->left)->data << "\n";
-    grapherPreorderTraversal(root->left, file);
-  } else if (root->left != NULL && root->right != NULL) {
-    file << root->data << "--";
-    file << (root->left)->data << "\n";
-    file << root->data << "--";
-    file << (root->right)->data << "\n";
-    grapherPreorderTraversal(root->left, file);
-    grapherPreorderTraversal(root->right, file);
-  }
-}
-
-void displayGraph() {
-  system("dot -Tsvg graph.gv -o graph.svg");
-  system("graph.svg");
-}
 
 BstNode *insert(BstNode *root, int data) {
   if (root == NULL) {
@@ -307,7 +154,7 @@ int findHeightRecursive(BstNode *root) {
 //?                       Video 33 - Level Order Traversal
 //~ For BFS, we use a queue.
 
-void levelOrderTraversal(BstNode *root) { // mark
+void levelOrderTraversal(BstNode *root) {
   if (root == NULL) {
     return;
   } else {
@@ -352,8 +199,8 @@ void inorder(BstNode *root) {
 void postorder(BstNode *root) {
   if (root == NULL)
     return;
-  postorder(root->left);
-  postorder(root->right);
+  preorder(root->left);
+  preorder(root->right);
   printf("%d\n", root->data);
 }
 
@@ -378,7 +225,7 @@ bool isBstUtil(BstNode *root, int minValue, int maxValue) { // It should be BtNo
 }
 
 bool isBinarySearchTree(BstNode *root) {
-  isBstUtil(root, INT_MIN, INT_MAX);
+  return isBstUtil(root, INT_MIN, INT_MAX);
 }
 
 //~ There is another solution to this problem - We can perform inorder traversal of the Binary Tree, and if the tree is BST, then the data would be in sorted order. During the whole traversal, we only need to keep track of previously read node, and at anytime the data in the node that we're reading must be greater than data in previously read node.
@@ -429,90 +276,26 @@ BstNode *deleteNode(BstNode *root, int data) {
   return root;
 }
 
-//$ extra functions: for studying
+//copied from the net
 
-void preorder_iterative(BstNode *root) {
-}
+void printBT(const std::string& prefix, const BstNode* node, bool isLeft)
+{
+    if( node != nullptr )
+    {
+        std::cout << prefix;
 
-void inorder_iterative(BstNode *root) {
-  std::stack<BstNode *> s;
+        std::cout << (isLeft ? "├──" : "└──" );
 
-  BstNode *current = root;
+        // print the value of the node
+        std::cout << node->data << std::endl;
 
-  int done = 0;
-
-  while (done == 0) {
-
-    if (current != NULL) {
-      s.push(current);
-      current = current->left;
-    } else {
-      if (!s.empty()) {
-        current = s.top();
-        s.pop();
-        std::cout << current->data << " ";
-        current = current->right;
-      } else {
-        done = 1;
-      }
+        // enter the next tree level - left and right branch
+        printBT( prefix + (isLeft ? "│   " : "    "), node->left, true);
+        printBT( prefix + (isLeft ? "│   " : "    "), node->right, false);
     }
-  }
 }
 
-void postorder_iterative(BstNode *root) {
-}
-
-void zigzag_levelOrder(BstNode *root) {
-}
-
-BstNode *invert(BstNode *root) {
-  if (root == NULL)
-    return root;
-
-  invert(root->left);
-  invert(root->right);
-
-  BstNode *temp = root->left;
-  root->left = root->right;
-  root->right = temp;
-}
-
-//void checkInversion(BstNode *leftTree, BstNode *rightTree){
-  //if(leftTree == NULL || rightTree == NULL)
-    //return;
-
-  //if(leftTree->data == rightTree->data){
-    //checkInversion(leftTree->right, rightTree->left);
-    //checkInversion(leftTree->left, rightTree->right);
-  //}else{
-    //printf("The trees are not mirrored.");
-    //return;
-  //}
-
-  //printf("The trees are mirrored.");
-  //return;
-//}
-
-void checkInversion(BstNode *leftTree, BstNode *rightTree, int *check){
-  if(leftTree == NULL && rightTree == NULL)
-    return;
-
-  if(leftTree == NULL){
-    (*check)++;
-    return;
-  }
-
-  if(rightTree == NULL){
-    (*check)++;
-    return;
-  }
-    
-  if(leftTree->data == rightTree->data){
-    checkInversion(leftTree->right, rightTree->left, check);
-    checkInversion(leftTree->left, rightTree->right, check);
-  }else{
-    (*check)++;//increments when not mirrored.
-    return;
-  }
-
+void printBT(const BstNode* node)
+{
+    printBT("", node, false);    
 }
